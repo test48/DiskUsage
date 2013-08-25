@@ -1,3 +1,5 @@
+QT += widgets
+
 SOURCES += \
     DiskUsage.cpp \
     main.cpp
