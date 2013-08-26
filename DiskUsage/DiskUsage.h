@@ -15,9 +15,14 @@ class DiskUsage : public QWidget {
 public:
     DiskUsage();
 
+private slots:
+    void browse();
+    void generate();
+
 private:
     QGroupBox *pathGroupBox;
     QLineEdit *pathLineEdit;
+    QPushButton *browseButton;
     QPushButton *generateButton;
     QGroupBox *chartGroupBox;
 
