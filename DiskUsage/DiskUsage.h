@@ -3,8 +3,9 @@
 
 #include <QWidget>
 
+class QCheckBox;
+class QGridLayout;
 class QGroupBox;
-class QHBoxLayout;
 class QLineEdit;
 class QPushButton;
 class QVBoxLayout;
@@ -24,9 +25,10 @@ private:
     QLineEdit *pathLineEdit;
     QPushButton *browseButton;
     QPushButton *generateButton;
+    QCheckBox *groupByTypeCheckBox;
     QGroupBox *chartGroupBox;
 
-    QHBoxLayout *pathGroupBoxLayout;
+    QGridLayout *pathGroupBoxLayout;
     QVBoxLayout *mainLayout;
 };
 

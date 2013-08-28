@@ -6,11 +6,13 @@ DiskUsage::DiskUsage() {
     pathLineEdit = new QLineEdit;
     browseButton = new QPushButton(tr("Browse..."));
     generateButton = new QPushButton(tr("Generate"));
+    groupByTypeCheckBox = new QCheckBox(tr("Group by type"));
 
-    pathGroupBoxLayout = new QHBoxLayout;
-    pathGroupBoxLayout->addWidget(pathLineEdit);
-    pathGroupBoxLayout->addWidget(browseButton);
-    pathGroupBoxLayout->addWidget(generateButton);
+    pathGroupBoxLayout = new QGridLayout;
+    pathGroupBoxLayout->addWidget(pathLineEdit, 0, 0);
+    pathGroupBoxLayout->addWidget(browseButton, 0, 1);
+    pathGroupBoxLayout->addWidget(generateButton, 1, 1);
+    pathGroupBoxLayout->addWidget(groupByTypeCheckBox, 1, 0);
 
     pathGroupBox = new QGroupBox(tr("Path"));
     pathGroupBox->setLayout(pathGroupBoxLayout);
