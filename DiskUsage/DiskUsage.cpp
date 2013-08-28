@@ -33,6 +33,8 @@ DiskUsage::DiskUsage() {
 void DiskUsage::browse() {
     QString filePath = QFileDialog::getExistingDirectory();
 
+    QMessageBox::information(this, tr("Test"));
+
     if (!filePath.isEmpty()) {
         pathLineEdit->setText(filePath);
     }
