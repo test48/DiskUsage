@@ -6,6 +6,7 @@
 class QCheckBox;
 class QGridLayout;
 class QGroupBox;
+class QLabel;
 class QLineEdit;
 class QPushButton;
 class QVBoxLayout;
@@ -27,8 +28,10 @@ private:
     QPushButton *generateButton;
     QCheckBox *groupByTypeCheckBox;
     QGroupBox *chartGroupBox;
+    QLabel *chartGroupBoxLabel;
 
     QGridLayout *pathGroupBoxLayout;
+    QVBoxLayout *chartGroupBoxLayout;
     QVBoxLayout *mainLayout;
 };
 
