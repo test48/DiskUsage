@@ -7,7 +7,7 @@ DiskUsage::DiskUsage() {
     browseButton = new QPushButton(tr("Browse..."));
     generateButton = new QPushButton(tr("Generate"));
     groupByTypeCheckBox = new QCheckBox(tr("Group by type"));
-
+d
     pathGroupBoxLayout = new QGridLayout;
     pathGroupBoxLayout->addWidget(pathLineEdit, 0, 0);
     pathGroupBoxLayout->addWidget(browseButton, 0, 1);
