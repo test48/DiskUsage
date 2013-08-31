@@ -2,7 +2,9 @@ QT += widgets
 
 SOURCES += \
     DiskUsage.cpp \
-    main.cpp
+    main.cpp \
+    PieView.cpp
 
 HEADERS += \
-    DiskUsage.h
+    DiskUsage.h \
+    PieView.h

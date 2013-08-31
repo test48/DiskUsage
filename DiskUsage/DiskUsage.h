@@ -9,6 +9,7 @@ class QGroupBox;
 class QLabel;
 class QLineEdit;
 class QPushButton;
+class QStandardItemModel;
 class QVBoxLayout;
 
 class DiskUsage : public QWidget {
@@ -29,6 +30,8 @@ private:
     QCheckBox *groupByTypeCheckBox;
     QGroupBox *chartGroupBox;
     QLabel *chartGroupBoxLabel;
+
+    QStandardItemModel *chartModel;
 
     QGridLayout *pathGroupBoxLayout;
     QVBoxLayout *chartGroupBoxLayout;

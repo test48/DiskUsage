@@ -7,7 +7,7 @@ DiskUsage::DiskUsage() {
     browseButton = new QPushButton(tr("Browse..."));
     generateButton = new QPushButton(tr("Generate"));
     groupByTypeCheckBox = new QCheckBox(tr("Group by type"));
-d
+
     pathGroupBoxLayout = new QGridLayout;
     pathGroupBoxLayout->addWidget(pathLineEdit, 0, 0);
     pathGroupBoxLayout->addWidget(browseButton, 0, 1);
@@ -32,6 +32,8 @@ d
 
     setLayout(mainLayout);
     setFixedSize(500, 400);
+
+    chartModel = new QStandardItemModel;
 
     connect(browseButton, SIGNAL(clicked()), this, SLOT(browse()));
     connect(generateButton, SIGNAL(clicked()), this, SLOT(generate()));
@@ -64,5 +66,7 @@ void DiskUsage::generate() {
     for (int i(0); i < list.size(); ++i) {
         QFileInfo fileInfo = list.at(i);
         map[fileInfo.fileName()] = fileInfo.size();
+        chartModel->setItem(chartModel->rowCount(), 0, new QStandardItem(fileInfo.fileName()));
+        chartModel->setItem(chartModel->rowCount() - 1, 1, new QStandardItem(fileInfo.size()));
     }
 }
