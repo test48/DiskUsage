@@ -11,7 +11,7 @@ class QLineEdit;
 class QPushButton;
 class QStandardItemModel;
 class QVBoxLayout;
-
+d
 class DiskUsage : public QWidget {
     Q_OBJECT
 
