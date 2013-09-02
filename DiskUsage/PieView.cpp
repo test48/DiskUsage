@@ -7,8 +7,7 @@
  #define M_PI 3.1415927
  #endif
 
- PieView::PieView(QWidget *parent)
-     : QAbstractItemView(parent)
+ PieView::PieView() : QAbstractItemView()
  {
      horizontalScrollBar()->setRange(0, 0);
      verticalScrollBar()->setRange(0, 0);
@@ -437,7 +436,7 @@
          for (int column = 0; column < columns; ++column) {
              QModelIndex index = model()->index(row, column, rootIndex());
              QRegion region = itemRegion(index);
-             if (!region.intersect(contentsRect).isEmpty())
+             if (!region.intersected(contentsRect).isEmpty())
                  indexes.append(index);
          }
      }

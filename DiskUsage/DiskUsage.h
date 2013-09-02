@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+class QAbstractItemView;
 class QCheckBox;
 class QGridLayout;
 class QGroupBox;
@@ -32,6 +33,7 @@ private:
     QLabel *chartGroupBoxLabel;
 
     QStandardItemModel *chartModel;
+    QAbstractItemView *chartView;
 
     QGridLayout *pathGroupBoxLayout;
     QVBoxLayout *chartGroupBoxLayout;

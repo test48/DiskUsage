@@ -17,7 +17,7 @@ class PieView : public QAbstractItemView {
     Q_OBJECT
 
 public:
-    PieView(QWidget *parent = 0);
+    PieView();
 
     QRect visualRect(const QModelIndex &index) const;
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible);

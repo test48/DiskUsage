@@ -1,8 +1,12 @@
 #include <QtWidgets>
 
 #include "DiskUsage.h"
+#include "PieView.h"
 
 DiskUsage::DiskUsage() {
+    chartModel = new QStandardItemModel;
+    chartView = new PieView;
+
     pathLineEdit = new QLineEdit;
     browseButton = new QPushButton(tr("Browse..."));
     generateButton = new QPushButton(tr("Generate"));
@@ -22,6 +26,7 @@ DiskUsage::DiskUsage() {
 
     chartGroupBoxLayout = new QVBoxLayout;
     chartGroupBoxLayout->addWidget(chartGroupBoxLabel, 0, Qt::AlignTop);
+    chartGroupBoxLayout->addWidget(chartView);
 
     chartGroupBox = new QGroupBox(tr("Chart"));
     chartGroupBox->setLayout(chartGroupBoxLayout);
@@ -32,8 +37,6 @@ DiskUsage::DiskUsage() {
 
     setLayout(mainLayout);
     setFixedSize(500, 400);
-
-    chartModel = new QStandardItemModel;
 
     connect(browseButton, SIGNAL(clicked()), this, SLOT(browse()));
     connect(generateButton, SIGNAL(clicked()), this, SLOT(generate()));
@@ -61,12 +64,14 @@ void DiskUsage::generate() {
     }
 
     QFileInfoList list = dir.entryInfoList();
-    QMap<QString, qint64> map;
 
     for (int i(0); i < list.size(); ++i) {
         QFileInfo fileInfo = list.at(i);
-        map[fileInfo.fileName()] = fileInfo.size();
         chartModel->setItem(chartModel->rowCount(), 0, new QStandardItem(fileInfo.fileName()));
         chartModel->setItem(chartModel->rowCount() - 1, 1, new QStandardItem(fileInfo.size()));
     }
+
+    chartView->setModel(chartModel);
+    QItemSelectionModel *selectionModel = new QItemSelectionModel(chartModel);
+    chartView->setSelectionModel(selectionModel);
 }
